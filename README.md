@@ -167,6 +167,10 @@ For a structured description of the model, training data, metrics, and limitatio
 ➡️ [`MODEL_CARD_PINN.md`](MODEL_CARD_PINN.md)
 
 
+For detailed ablation and sensitivity experiments (features, shots, hidden sizes, and train set size), see:
+
+➡️ [`ABLATION_STUDIES.md`](ABLATION_STUDIES.md)
+
 ---
 
 ##  What I Learned
