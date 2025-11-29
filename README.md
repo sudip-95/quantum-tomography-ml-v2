@@ -1,5 +1,6 @@
 # Quantum State Tomography with Physics-Informed Machine Learning
 
+[![CI](https://github.com/sudip-95/quantum-tomography-ml-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/sudip-95/quantum-tomography-ml-v2/actions/workflows/ci.yml)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sudip-95/quantum-tomography-ml-v2/blob/main/colab_demo.ipynb)
 
 
