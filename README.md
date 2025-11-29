@@ -70,7 +70,7 @@ quantum-tomography-ml-v2/
 
 ---
 
-## 🚀 Quickstart
+##  Quickstart
 
 ### 1️⃣ Create a virtual environment
 ```bash
@@ -91,7 +91,7 @@ python -m src.train.train_1q --shots 512 --epochs 60
 
 ---
 
-## 🔧 Pretrained Models
+##  Pretrained Models
 - [2-qubit PINN checkpoint (`mlp_2q_best.pt`)](reports/mlp_2q_best.pt)
 
 ---
@@ -148,7 +148,7 @@ See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
 
 ---
 
-## 🧠 Method Summary
+##  Method Summary
 
 - Data from Ginibre ensembles  
 - PINN architecture ensuring valid density matrices  
