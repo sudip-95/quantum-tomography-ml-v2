@@ -1,6 +1,6 @@
 # Physics-Informed Neural Networks for 1–2 Qubit Quantum State Tomography
 
-**Author:** Sudip Sen Gupta Arka  
+**Author:** Sudip Sen Gupta Arka; Adrita Idris Disha  
 **Year:** 2025  
 **Repository:** https://github.com/sudip-95/quantum-tomography-ml-v2  
 
