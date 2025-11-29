@@ -81,6 +81,20 @@ python -m src.train.train_1q --shots 512 --epochs 60
 
 ---
 
+## 🧪 Evaluate Pretrained Model
+
+To evaluate a pretrained 2-qubit model on a fresh synthetic test set:
+
+```bash
+python -m src.eval.eval_2q \
+    --checkpoint reports/mlp_2q_best.pt \
+    --features counts \
+    --shots 256 \
+    --test 2000 \
+    --hidden 512,512
+
+---
+
 ## 🔄 Reproduce Main 2-Qubit Results (Fidelity ≈ 0.98)
 
 ### ML Model (counts features)
