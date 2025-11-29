@@ -156,6 +156,15 @@ See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
 
 ---
 
+##  What I Learned
+- How to enforce physical constraints (Hermitian, PSD, trace-1) in neural networks  
+- How to generate synthetic quantum states via Ginibre ensembles  
+- Importance of measurement noise and shot count in tomography  
+- How Cholesky factorization guarantees valid density matrices  
+- How to benchmark against classical linear inversion  
+- Designing reproducible ML experiments and evaluation pipelines  
+
+---
 ## 📘 Citation
 ```
 Sudip Sen Gupta Arka, "Physics-Informed Neural Quantum State Tomography", 2025.
