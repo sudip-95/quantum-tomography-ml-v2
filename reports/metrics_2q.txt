@@ -1,0 +1,4 @@
+features=pauli
+shots=512
+fro_mean=0.37193028
+fid_mean=0.86322147

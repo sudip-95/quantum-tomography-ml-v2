@@ -1,0 +1,50 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg-info/
+*.egg
+build/
+dist/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+Scripts/
+Lib/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+logs/
+*.log
+
+# Checkpoints / temporary files
+.ipynb_checkpoints/
+*.tmp
+*.bak
+
+# Reports and outputs
+reports/*.npz
+reports/*.npy
+
+# Model weights and large binaries
+*.pt
+*.pth
+*.onnx
+
+# Other temporary data
+*.zip
+*.tar
+*.gz
+*.csv~
