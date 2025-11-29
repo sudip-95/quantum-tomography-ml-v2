@@ -92,7 +92,7 @@ python -m src.eval.eval_2q \
     --shots 256 \
     --test 2000 \
     --hidden 512,512
-
+```
 ---
 
 ## 🔄 Reproduce Main 2-Qubit Results (Fidelity ≈ 0.98)
