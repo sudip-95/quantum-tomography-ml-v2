@@ -121,6 +121,19 @@ def main():
                 frobs.append(frobenius_rho(p, t))
                 fids.append(fidelity(p, t))
     print(f"TEST | Frobenius mean {np.mean(frobs):.6f} | Fidelity mean {np.mean(fids):.6f}")
+    # === Save checkpoint ===
+    os.makedirs("reports", exist_ok=True)
+    save_path = os.path.join("reports", "mlp_2q_best.pt")
+
+    torch.save({
+        "model_state_dict": model.state_dict(),
+        "features": args.features,
+        "hidden": args.hidden,
+        "shots": args.shots,
+    }, save_path)
+
+print(f"Saved checkpoint to {save_path}")
+
 
     os.makedirs("reports", exist_ok=True)
     with open(os.path.join("reports","metrics_2q.txt"), "w") as f:
