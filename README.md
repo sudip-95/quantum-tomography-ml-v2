@@ -161,6 +161,12 @@ For a more detailed physics discussion (density matrices, tomography, and the PI
 
 ➡️ [`PHYSICS_EXPLANATION.md`](PHYSICS_EXPLANATION.md)
 
+
+For a structured description of the model, training data, metrics, and limitations, see:
+
+➡️ [`MODEL_CARD_PINN.md`](MODEL_CARD_PINN.md)
+
+
 ---
 
 ##  What I Learned
