@@ -100,6 +100,15 @@ python plot_results.py
 
 ---
 
+## 📓 Demo Notebook
+
+See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
+- 1-qubit and 2-qubit training
+- Metric computation
+- Plot generation and visualization
+
+---
+
 ## 📊 Results
 
 ### Fidelity Comparison  
