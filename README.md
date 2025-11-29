@@ -6,7 +6,13 @@
 
 ---
 
-## ⭐ Overview
+> **TL;DR:** I built a physics-informed neural network that reconstructs 1–2 qubit quantum states with ~0.98 fidelity, outperforming classical linear inversion.  
+> The model enforces Hermiticity, positive semidefiniteness, and trace-1 automatically through a Cholesky parameterization.  
+> Full reproducible code, pretrained models, and demo notebook included.
+
+---
+
+## Overview
 
 This project implements a **physics-informed neural network (PINN)** for **quantum state tomography** of **1–2 qubit systems**.  
 The model reconstructs the underlying density matrix of a quantum system from noisy measurement data while **guaranteeing physical validity** (Hermitian, positive semidefinite, trace = 1).
@@ -23,7 +29,7 @@ This repository contains:
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 ✔ Physics-Informed Architecture  
 ✔ Complete Tomography Pipeline  
@@ -81,7 +87,7 @@ python -m src.train.train_1q --shots 512 --epochs 60
 
 ---
 
-## 🧪 Evaluate Pretrained Model
+##  Evaluate Pretrained Model
 
 To evaluate a pretrained 2-qubit model on a fresh synthetic test set:
 
@@ -95,7 +101,7 @@ python -m src.eval.eval_2q \
 ```
 ---
 
-## 🔄 Reproduce Main 2-Qubit Results (Fidelity ≈ 0.98)
+## Reproduce Main 2-Qubit Results (Fidelity ≈ 0.98)
 
 ### ML Model (counts features)
 ```bash
