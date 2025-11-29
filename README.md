@@ -165,6 +165,51 @@ See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
 - Designing reproducible ML experiments and evaluation pipelines  
 
 ---
+
+## 📚 References
+
+**Quantum State Tomography**
+- D. F. V. James, P. G. Kwiat, W. J. Munro, A. G. White (2001).  
+  *"Measurement of qubits"* — The foundational paper on quantum state tomography.  
+- M. Paris and J. Řeháček (2004).  
+  *"Quantum State Estimation"* — Comprehensive textbook on tomographic reconstruction.
+
+**Physics-Informed Neural Networks (PINNs)**
+- M. Raissi, P. Perdikaris, G. E. Karniadakis (2019).  
+  *"Physics-Informed Neural Networks: A Deep Learning Framework for Solving Forward and Inverse Problems Involving Nonlinear PDEs."*  
+  Introduces the PINN framework used as inspiration for physics-aware constraints.
+
+**Quantum Machine Learning**
+- J. Biamonte et al. (2017).  
+  *"Quantum Machine Learning."* Nature — Overview of ML techniques applied to quantum systems.
+- Schuld & Killoran (2019).  
+  *"Quantum Machine Learning in Feature Hilbert Spaces."*
+
+**Cholesky / Positive Semidefinite Parameterization**
+- J. Smolin, D. DiVincenzo (1996).  
+  *"Five two-qubit quantum states are enough to characterize."*  
+  (Introduces matrix reconstruction ideas used in tomography.)
+- Cholesky PSD parameterization commonly used in density matrix reconstruction  
+  (standard technique widely used across tomography and variational quantum algorithms).
+
+**Classical Baselines**
+- K. Banaszek, G. M. D’Ariano, M. Paris, M. Sacchi (1999).  
+  *"Maximum-likelihood estimation of the density matrix."*  
+- A. G. White et al. (1999).  
+  *"Nonmaximally entangled states: Production, characterization, and tomography."*
+
+**Neural Quantum State Reconstruction**
+- Torlai et al. (2018).  
+  *"Neural-network quantum state tomography."*  
+  Demonstrates the power of neural networks for reconstructing quantum states from data.
+
+**Quantum Software & Noise Models**
+- Qiskit Development Team (2017–2024).  
+  *Qiskit: An Open-source Framework for Quantum Computing.*  
+  (Useful for comparing simulated measurement noise and experimental-style tomography.)
+
+---
+
 ## 📘 Citation
 ```
 Sudip Sen Gupta Arka, "Physics-Informed Neural Quantum State Tomography", 2025.
