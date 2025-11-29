@@ -1,5 +1,8 @@
 # Quantum State Tomography with Physics-Informed Machine Learning
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sudip-95/quantum-tomography-ml-v2/blob/main/colab_demo.ipynb)
+
+
 **Author:** Sudip Sen Gupta Arka  
 **Year:** 2025  
 **Email:** senguptasudip95@gmail.com  
@@ -141,10 +144,6 @@ See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
 
 ### Frobenius Distance Comparison  
 <img src="reports/frobenius_comparison.png" width="500"/>
-
----
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sudip-95/quantum-tomography-ml-v2/blob/main/colab_demo.ipynb)
 
 ---
 
