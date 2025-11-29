@@ -144,6 +144,10 @@ See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
 
 ---
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sudip-95/quantum-tomography-ml-v2/blob/main/colab_demo.ipynb)
+
+---
+
 ## 🧠 Method Summary
 
 - Data from Ginibre ensembles  
