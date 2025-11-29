@@ -156,6 +156,12 @@ See `demo_quantum_tomography.ipynb` for an end-to-end walkthrough:
 
 ---
 
+For a more detailed physics discussion (density matrices, tomography, and the PINN parameterization), see:
+
+➡️ [`PHYSICS_EXPLANATION.md`](PHYSICS_EXPLANATION.md)
+
+---
+
 ##  What I Learned
 - How to enforce physical constraints (Hermitian, PSD, trace-1) in neural networks  
 - How to generate synthetic quantum states via Ginibre ensembles  
