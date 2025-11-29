@@ -17,48 +17,71 @@ def build_model(features: str, hidden: str):
     features : {"counts", "pauli"}
         Type of input features the model expects.
     hidden : str
-        Comma‑separated hidden layer sizes, e.g. "512,512".
+        Comma-separated hidden layer sizes, e.g. "512,512".
     """
+    # Match the input dimension to the feature type
     if features == "counts":
         in_dim = 36  # 9 bases × 4 outcomes
     elif features == "pauli":
-        in_dim = 15  # 15 two‑qubit Pauli expectations
+        in_dim = 15  # 15 two-qubit Pauli expectations
     else:
         raise ValueError(f"Unknown features type: {features}")
 
+    # Parse hidden sizes
     if hidden.strip() == "":
-        hidden_sizes = [256, 256]
+        hidden_sizes = [512, 512]
     else:
         hidden_sizes = [int(h) for h in hidden.split(",")]
 
-    model = RhoNet2Q(in_dim=in_dim, hidden_sizes=hidden_sizes)
+    # IMPORTANT: your RhoNet2Q __init__ does NOT use 'hidden_sizes=' as a keyword,
+    # so we pass the hidden sizes as a positional argument (second argument),
+    # just like in train_2q.py.
+    model = RhoNet2Q(in_dim, hidden_sizes)
     return model
+
 
 
 def evaluate_model(model, x_test, y_test, device):
     """Evaluate a trained model on a test dataset.
 
-    Assumes:
-    - x_test: (N, in_dim) float32 numpy array
-    - y_test: (N, 4, 4) complex or float numpy array representing density matrices
+    We loop over samples one by one because frobenius_rho/fidelity in
+    metrics.py expect single 4x4 matrices, not a batch.
     """
     model.eval()
+    frob_vals = []
+    fid_vals = []
+
+    import numpy as np
+    import torch
+
+    N = x_test.shape[0]
+
     with torch.no_grad():
-        x = torch.as_tensor(x_test, dtype=torch.float32, device=device)
+        for i in range(N):
+            # x: (in_dim,)
+            x_i = torch.as_tensor(x_test[i], dtype=torch.float32, device=device).unsqueeze(0)  # (1, in_dim)
 
-        # Assume y_test is either complex numpy or stacked real/imag. If your
-        # project uses a different representation, adapt this part accordingly.
-        if np.iscomplexobj(y_test):
-            y = torch.as_tensor(y_test, dtype=torch.complex64, device=device)
-        else:
-            y = torch.as_tensor(y_test, dtype=torch.float32, device=device)
+            # Forward pass: rho_pred_i: (4, 4)
+            rho_pred_i = model(x_i)[0].cpu().numpy()
 
-        rho_pred = model(x)
+            # True rho: make sure it's a 4x4 numpy array
+            y_i = y_test[i]
+            if np.iscomplexobj(y_i):
+                rho_true_i = np.array(y_i)
+            else:
+                rho_true_i = np.array(y_i)
 
-        frob = frobenius_rho(rho_pred, y).mean().item()
-        fid = fidelity(rho_pred, y).mean().item()
+            # metrics.frobenius_rho and fidelity expect single matrices (4x4)
+            f_i = frobenius_rho(rho_pred_i, rho_true_i)
+            F_i = fidelity(rho_pred_i, rho_true_i)
 
-    return frob, fid
+            frob_vals.append(f_i)
+            fid_vals.append(F_i)
+
+    frob_mean = float(np.mean(frob_vals))
+    fid_mean = float(np.mean(fid_vals))
+    return frob_mean, fid_mean
+
 
 
 def main():
@@ -140,3 +163,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
