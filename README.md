@@ -87,6 +87,11 @@ python -m src.train.train_1q --shots 512 --epochs 60
 
 ---
 
+## 🔧 Pretrained Models
+- [2-qubit PINN checkpoint (`mlp_2q_best.pt`)](reports/mlp_2q_best.pt)
+
+---
+
 ##  Evaluate Pretrained Model
 
 To evaluate a pretrained 2-qubit model on a fresh synthetic test set:
