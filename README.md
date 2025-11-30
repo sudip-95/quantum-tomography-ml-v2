@@ -19,7 +19,7 @@
 ## Overview
 
 This project implements a **physics-informed neural network (PINN)** for **quantum state tomography** of **1–2 qubit systems**.  
-The model reconstructs the underlying density matrix of a quantum system from noisy measurement data while **guaranteeing physical validity** (Hermitian, positive semidefinite, trace = 1).
+The model reconstructs the underlying density matrix of a quantum system from noisy measurement data while guaranteeing physical validity (Hermitian, positive semidefinite, trace = 1).
 
 The approach achieves **~0.98 fidelity** on simulated 2-qubit states and **significantly outperforms classical linear inversion**.
 
