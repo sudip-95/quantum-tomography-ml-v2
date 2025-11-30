@@ -14,12 +14,12 @@ Quantum state tomography is the task of reconstructing an unknown quantum state 
 
 ## 1 Introduction
 
-At a very simple level, **tomography** means *reconstructing something you cannot see directly by looking at many different “shadows” of it*.  
+At a very simple level, **Tomography** means reconstructing something you cannot see directly by looking at many different “shadows” of it.  
 
 - In a medical CT scan, you shine X-rays from many angles and reconstruct a 3D picture of the body.  
 - In **quantum state tomography**, you prepare many copies of the same quantum state, measure them in different ways, and reconstruct the invisible quantum state from the measurement outcomes.
 
-In this project I study **quantum state tomography** for 1–2 qubit systems using **physics-informed machine learning**. Instead of relying only on analytic formulas, I train a neural network that:
+In this project I study quantum state tomography for 1–2 qubit systems using physics-informed machine learning. Instead of relying only on analytic formulas, I train a neural network that:
 
 1. Takes noisy measurement statistics as input,  
 2. Outputs a full density matrix for the 1–2 qubit state, and  
@@ -46,7 +46,7 @@ A single qubit can be in a superposition
 |\psi\rangle = \alpha |0\rangle + \beta |1\rangle, \quad |\alpha|^2 + |\beta|^2 = 1.
 \]
 
-However, real systems are noisy and often better described as **mixed states**, which cannot be captured by a single state vector. Instead we use a **density matrix** \(\rho\):
+However, real systems are noisy and often better described as mixed states, which cannot be captured by a single state vector. Instead we use a density matrix \(\rho\):
 
 - For \(n\) qubits, \(\rho\) is a \(2^n \times 2^n\) complex matrix.
 - Physically valid density matrices satisfy:
@@ -58,24 +58,24 @@ Pure states can be written as \(\rho = |\psi\rangle\langle\psi|\) with \(\mathrm
 
 ### 2.2 Quantum State Tomography
 
-In practice, we never get to “look at” \(\rho\) directly. Instead, we perform many **measurements** on identically prepared copies of the system.
+In practice, we never get to “look at” \(\rho\) directly. Instead, we perform many measurements on identically prepared copies of the system.
 
-For 1–2 qubits, a natural set of measurements uses combinations of the **Pauli bases**:
+For 1–2 qubits, a natural set of measurements uses combinations of the Pauli bases:
 
 - For 1 qubit: measure in X, Y, Z bases.  
 - For 2 qubits: measure all 9 combinations from \(\{X, Y, Z\} \otimes \{X, Y, Z\}\).
 
-For each setting, we perform a finite number of **shots** (repetitions). From the outcomes, we estimate either:
+For each setting, we perform a finite number of shots (repetitions). From the outcomes, we estimate either:
 
-- **Counts:** frequencies of outcomes 00, 01, 10, 11 for each basis pair.  
-- **Expectation values:** average values like \(\langle X \otimes Z \rangle\).
+- Counts: frequencies of outcomes 00, 01, 10, 11 for each basis pair.  
+- Expectation values: average values like \(\langle X \otimes Z \rangle\).
 
 **Quantum state tomography** is the inverse problem of reconstructing \(\rho\) from these noisy statistics. Classical techniques include:
 
 - **Linear inversion:** solve a linear system mapping measurement statistics to matrix elements of \(\rho\). Fast but can produce non-physical \(\rho\).  
 - **Maximum likelihood estimation:** optimize over valid density matrices to best explain the observed data. More accurate but computationally heavier.
 
-This project instead explores a **physics-informed neural approach**, where a network learns the mapping from measurements to \(\rho\) but is constrained to always output valid states.
+This project instead explores a physics-informed neural approach, where a network learns the mapping from measurements to \(\rho\) but is constrained to always output valid states.
 
 ---
 
@@ -83,13 +83,13 @@ This project instead explores a **physics-informed neural approach**, where a ne
 
 ### 3.1 Data Generation
 
-All data used in this project is **synthetic**, generated in Python:
+All data used in this project is synthetic, generated in Python:
 
-1. **State sampling.** Random 1–2 qubit states are sampled (e.g., using Ginibre ensembles), giving ground-truth density matrices \(\rho_{\text{true}}\).  
-2. **Measurement simulation.** For each state, we simulate projective measurements in Pauli bases (X, Y, Z on each qubit) with a finite number of shots (e.g., 256 or 512).  
-3. **Feature construction.**  
-   - For **counts features**, we collect normalized counts \(p(00), p(01), p(10), p(11)\) for each basis pair and concatenate them. In the 2-qubit case this yields a 36-dimensional feature vector (9 basis pairs × 4 outcomes).  
-   - For **Pauli features**, we compute estimated expectation values of 2-qubit Pauli operators, giving a 15-dimensional feature vector.
+1. State sampling. Random 1–2 qubit states are sampled (e.g., using Ginibre ensembles), giving ground-truth density matrices \(\rho_{\text{true}}\).  
+2. Measurement simulation. For each state, we simulate projective measurements in Pauli bases (X, Y, Z on each qubit) with a finite number of shots (e.g., 256 or 512).  
+3. Feature construction.  
+   - For counts features, we collect normalized counts \(p(00), p(01), p(10), p(11)\) for each basis pair and concatenate them. In the 2-qubit case this yields a 36-dimensional feature vector (9 basis pairs × 4 outcomes).  
+   - For Pauli features, we compute estimated expectation values of 2-qubit Pauli operators, giving a 15-dimensional feature vector.
 
 The labels for supervised learning are the true density matrices \(\rho_{\text{true}}\) associated with each feature vector.
 
@@ -116,7 +116,7 @@ This ensures that every prediction is:
 - PSD: \(\rho \succeq 0\)  
 - Trace-one: \(\mathrm{Tr}(\rho) = 1\)
 
-In other words, **the architecture itself enforces the physics**, and the optimizer does not need to learn these constraints from data.
+In other words, the architecture itself enforces the physics, and the optimizer does not need to learn these constraints from data.
 
 ### 3.3 Network Architecture
 
