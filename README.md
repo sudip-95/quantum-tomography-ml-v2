@@ -4,7 +4,7 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sudip-95/quantum-tomography-ml-v2/blob/main/colab_demo.ipynb)
 
 
-**Author:** Sudip Sen Gupta Arka  
+**Author:** Sudip Sen Gupta Arka; Adrita Idris Disha;  
 **Year:** 2025  
 **Email:** senguptasudip95@gmail.com  
 
